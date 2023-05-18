@@ -1,0 +1,28 @@
+@host = http://localhost:3000
+
+
+### POSTS
+
+GET {{host}}/posts/all
+
+
+###
+GET {{host}}/posts/postId
+
+
+###
+POST {{host}}/posts/new
+
+
+###
+PUT {{host}}/posts/edit 
+
+
+###
+DELETE {{host}}/posts/postId 
+
+
+ GET /posts/postId (Cada post recuperar deberia ir acompañadao de todos los datos del autor de este )
+- POST /posts/new
+- DELETE /posts/delete/postId
+- PUT /posts/edit
