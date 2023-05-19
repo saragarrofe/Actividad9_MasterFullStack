@@ -3,12 +3,15 @@ const router = express.Router();
 
 // GET /posts
 
-router.get('/', (req, res) => {
-    // Recuperar en formato JSON todos los posts
-    // Lanzar la query que recupera todos los posts
-    // Recuperar los posts de la query como un array 
-    // Responder con dicho array 
-    res.json('Url para recuperar todos los posts')
+router.get('/', async (req, res) => {
+    try{
+        const [result] = await db.query('SELECT * FROM mydb.posts');
+        console.log(result.length);
+        res.json(result);
+
+    }catch(error){
+        res.json({ ERROR: error.message })
+    }
 });
 
 //  GET /posts/postId
