@@ -3,26 +3,52 @@
 
 ### POSTS
 
-GET {{host}}/posts/all
+GET {{host}}/posts
 
 
 ###
-GET {{host}}/posts/postId
+GET {{host}}/posts/12
 
 
 ###
 POST {{host}}/posts/new
+Content-Type: application/json
+
+{
+    "Nombre": "Sara",
+    "Apellidos": "Garrofé"
+}
 
 
 ###
-PUT {{host}}/posts/edit 
+PUT {{host}}/posts/33
 
 
 ###
 DELETE {{host}}/posts/postId 
 
 
- GET /posts/postId (Cada post recuperar deberia ir acompañadao de todos los datos del autor de este )
-- POST /posts/new
-- DELETE /posts/delete/postId
-- PUT /posts/edit
+
+### AUTORES 
+
+
+GET {{host}}/autores
+
+
+###
+GET {{host}}/autores/autorId
+
+###
+GET {{host}}/autores/autorId/posts
+
+### 
+POST {{host}}/autores/new
+
+
+###
+PUT {{host}}/autores/edit
+
+### 
+DELETE {{host}}/autores/autorId
+
+
