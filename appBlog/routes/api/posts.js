@@ -1,51 +1,77 @@
 const express = require('express');
+const { getAll, getById, create, update, deleteById } = require('../../models/post.model');
 const router = express.Router();
 
-// GET /posts
+// GET /api/posts
 
 router.get('/', async (req, res) => {
     try{
-        const [result] = await db.query('SELECT * FROM mydb.posts');
-        console.log(result.length);
+        const [result] = await getAll();
         res.json(result);
-
     }catch(error){
         res.json({ ERROR: error.message })
     }
 });
 
-//  GET /posts/postId
+//  GET /api/posts/postId
 
-router.get('/:postId', (req, res) => {
-
+router.get('/:postId', async (req, res) => {
     const { postId } = req.params;
-    res.json('Url para recuperar un único post mediante su ID')
+    try{
+        const [result] = await getById(postId);
+        if(result.length === 0){
+            return res.json({ Mensaje: 'No existe un post con este identificador'});
+        }
+        res.json(result[0]);
+    }catch(error){
+        res.json({ ERROR: error.message });
+    }  
 });
 
 
-// POST /posts/new
+// POST /api/posts/new
 
-router.post('/new', (req, res) => {
-    console.log(req.body);
-    res.json('Se crea un nuevo post')
+router.post('/new', async (req, res) => {
+    try{
+        const [result] = await create(req.body);
+        const [post] = await getById(result.insertId)
+        res.json(post[0]);
+    }catch(error){
+        res.json({ ERROR: error.message });
+    }  
 });
 
 
-// PUT /posts/postId
+// PUT /api/posts/postId
 
-router.put('/:postId', (req, res) => {
+router.put('/:postId', async (req, res) => {
 
     const { postId } = req.params;
-    res.json('Se edita un post')
+    try{
+        const [result] = await update(postId, req.body);
+        const [post] = await getById(postId)
+        res.json(post[0]);
+
+    } catch(error){
+        res.json({ ERROR: error.message });
+    }
+
 });
 
 
 
-// DELETE /posts/delete
+// DELETE /api/posts/delete
 
-router.delete('/:postId', (req, res) => {
+router.delete('/:postId', async (req, res) => {
     const { postId } = req.params;
-    res.json('Se elimina un post');
+    try{
+        const [post] = await getById(postId);
+        const [result] = await deleteById(postId);
+        res.json(post[0])
+    }catch(error){
+        res.json({ ERROR: error.message });
+    }
+
 });
 
 
