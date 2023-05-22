@@ -1,6 +1,6 @@
 const express = require('express');
 const { getAll, getById, create, update, deleteById } = require('../../models/autor.model');
-const { getByAutorId, prueba } = require('../../models/post.model');
+const { getByAutorId } = require('../../models/post.model');
 const router = express.Router();
 
 
@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
 router.get('/posts/:autorId', async (req, res) => {
     const { autorId } = req.params;
     try{
-        const [result] = await prueba(autorId);
+        const [result] = await getByAutorId(autorId);
         if(result.length === 0){
             return res.json({ Mensaje: 'No existe un autor/a con este identificador'})
         }
