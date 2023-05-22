@@ -67,7 +67,7 @@ router.delete('/:postId', async (req, res) => {
     try{
         const [post] = await getById(postId);
         const [result] = await deleteById(postId);
-        res.json(post[0])
+        res.json(post[0]);
     }catch(error){
         res.json({ ERROR: error.message });
     }

@@ -18,7 +18,20 @@ const create = ({ nombre, apellidos, email, imagen }) => {
     )
 };
 
+const update = (autorId, {nombre, apellidos, email, imagen}) => {
+    return db.query(
+        'update mydb.autores set nombre = ?, apellidos = ?, email = ?, imagen = ? where id = ?', 
+        [nombre, apellidos, email, imagen, autorId]
+    )
+};
+
+
+const deleteById = (autorId) => {
+    return db.query('delete from mydb.autores where id = ?', [autorId])
+
+};
 
 
 
-module.exports = { getAll, getById, create };
+
+module.exports = { getAll, getById, create, update, deleteById };

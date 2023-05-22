@@ -7,7 +7,7 @@ GET {{host}}/posts
 
 
 ###
-GET {{host}}/posts/1
+GET {{host}}/posts/2
 
 
 ###
@@ -24,11 +24,11 @@ Content-Type: application/json
 
 
 ###
-PUT {{host}}/posts/33
+PUT {{host}}/posts/10
 Content-Type: application/json
 
 {
-    "titulo": "titulo modificado",
+    "titulo": "titulo modificado otra vez",
     "descripcion": "descripcion chulisima modificada",
     "fecha_creacion": "2023-05-17 10:00:00",
     "categoria": "deportes",
@@ -38,7 +38,7 @@ Content-Type: application/json
 
 
 ###
-DELETE {{host}}/posts/postId 
+DELETE {{host}}/posts/9 
 
 
 
@@ -52,7 +52,7 @@ GET {{host}}/autores
 GET {{host}}/autores/1
 
 ###
-GET {{host}}/autores/autorId/posts
+GET {{host}}/autores/posts
 
 ### 
 POST {{host}}/autores/new
@@ -67,9 +67,17 @@ Content-Type: application/json
 
 
 ###
-PUT {{host}}/autores/edit
+PUT {{host}}/autores/11
+Content-Type: application/json
+
+{
+    "nombre": "Victor",
+    "apellidos": "Guevara",
+    "email": "victoriaguevara@gmail.com",
+    "imagen": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.livecareer.es%2Fcurriculum-vitae%2Ffoto-curriculum&psig=AOvVaw2pb5RkG1WetWdsHOVfsO_5&ust=1684600874080000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCJj2sLfpgf8CFQAAAAAdAAAAABAU"
+}
 
 ### 
-DELETE {{host}}/autores/autorId
+DELETE {{host}}/autores/11
 
 
