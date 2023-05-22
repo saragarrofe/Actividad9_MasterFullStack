@@ -47,12 +47,13 @@ DELETE {{host}}/posts/9
 
 GET {{host}}/autores
 
+###
+GET {{host}}/autores/posts/3
 
 ###
 GET {{host}}/autores/1
 
-###
-GET {{host}}/autores/posts
+
 
 ### 
 POST {{host}}/autores/new
