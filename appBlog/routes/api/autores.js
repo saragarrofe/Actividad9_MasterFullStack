@@ -11,12 +11,12 @@ router.get('/', async (req, res) => {
         const [result] = await getAll();
         res.json(result);
     }catch(error){
-        res.json({ ERROR: error.message })
+        res.status(500).json({ ERROR: error.message })
     }
 });
 
 
-//  GET /api/autores/posts
+//  GET /api/autores/posts/autorId
 
 router.get('/posts/:autorId', async (req, res) => {
     const { autorId } = req.params;
@@ -26,17 +26,6 @@ router.get('/posts/:autorId', async (req, res) => {
             return res.json({ Mensaje: 'No existe un autor/a con este identificador'})
         }
         res.json(result);
-        /*
-        const [autores] = await getAll();
-
-        for (let autor of autores){
-            const [posts] = await getByAutorId(autor.id);
-            console.log(posts.length);
-            autor.posts = posts;
-        }
-        res.json(autores);
-
-        */
 
     }catch(error){
         res.json({ ERROR: error.message })
@@ -69,7 +58,7 @@ router.post('/new', async (req, res) => {
         const [post] = await getById(result.insertId)
         res.json(post[0]);
     }catch(error){
-        res.json({ ERROR: error.message });
+        res.status(500).json({ ERROR: error.message });
     }  
 });
 
@@ -84,7 +73,7 @@ router.put('/:autorId', async (req, res) => {
         res.json(autor[0]);
 
     } catch(error){
-        res.json({ ERROR: error.message });
+        res.status(500).json({ ERROR: error.message });
     }
 
 });
@@ -100,7 +89,7 @@ router.delete('/:autorId', async (req, res) => {
         const [result] = await deleteById(autorId);
         res.json(autor[0]);
     }catch(error){
-        res.json({ ERROR: error.message });
+        res.status(500).json({ ERROR: error.message });
     }
 
 });

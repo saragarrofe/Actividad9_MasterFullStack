@@ -7,7 +7,7 @@ GET {{host}}/posts
 
 
 ###
-GET {{host}}/posts/2
+GET {{host}}/posts/7
 
 
 ###
@@ -24,14 +24,14 @@ Content-Type: application/json
 
 
 ###
-PUT {{host}}/posts/10
+PUT {{host}}/posts/8
 Content-Type: application/json
 
 {
-    "titulo": "titulo modificado otra vez",
-    "descripcion": "descripcion chulisima modificada",
-    "fecha_creacion": "2023-05-17 10:00:00",
-    "categoria": "deportes",
+    "titulo": "El cámara Miguel Ángel de la Fuente gana el Premio Cirilo Rodríguez de periodismo",
+    "descripcion": "Óscar Mijallo y María Senovilla resultan finalistas. Y el colaborador de EL PAÍS Aurelio Martín ha recibido el galardón de honor",
+    "fecha_creacion": "2023-05-22 09:20:00",
+    "categoria": "sociedad",
     "autores_id": 4
 }
 
@@ -48,10 +48,10 @@ DELETE {{host}}/posts/9
 GET {{host}}/autores
 
 ###
-GET {{host}}/autores/posts/3
+GET {{host}}/autores/posts/2
 
 ###
-GET {{host}}/autores/1
+GET {{host}}/autores/11
 
 
 
@@ -60,7 +60,7 @@ POST {{host}}/autores/new
 Content-Type: application/json
 
 {
-    "nombre": "Victoria",
+    "nombrsse": "Victoria",
     "apellidos": "Guevara",
     "email": "victoriaguevara@gmail.com",
     "imagen": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.livecareer.es%2Fcurriculum-vitae%2Ffoto-curriculum&psig=AOvVaw2pb5RkG1WetWdsHOVfsO_5&ust=1684600874080000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCJj2sLfpgf8CFQAAAAAdAAAAABAU"

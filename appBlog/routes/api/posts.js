@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
         const [result] = await getAll();
         res.json(result);
     }catch(error){
-        res.json({ ERROR: error.message })
+        res.status(500).json({ ERROR: error.message })
     }
 });
 
@@ -37,7 +37,7 @@ router.post('/new', async (req, res) => {
         const [post] = await getById(result.insertId)
         res.json(post[0]);
     }catch(error){
-        res.json({ ERROR: error.message });
+        res.status(500).json({ ERROR: error.message });
     }  
 });
 
@@ -53,7 +53,7 @@ router.put('/:postId', async (req, res) => {
         res.json(post[0]);
 
     } catch(error){
-        res.json({ ERROR: error.message });
+        res.status(500).json({ ERROR: error.message });
     }
 
 });
@@ -69,7 +69,7 @@ router.delete('/:postId', async (req, res) => {
         const [result] = await deleteById(postId);
         res.json(post[0]);
     }catch(error){
-        res.json({ ERROR: error.message });
+        res.status(500).json({ ERROR: error.message });
     }
 
 });
